@@ -1,0 +1,36 @@
+name
+PewDieDog
+gender
+neutral
+texture
+assets/player/edgar.png
+jumpsound
+assets/sound/jump2.ogg
+tilewidth
+18
+tileheight
+19
+idle
+{1,1,1},{20,2,1},{39,"loop"}
+walk
+{1,3,1},{6,1,1},{11,4,1},{16,1,1},{21,"loop"}
+jumpu
+{1,5,1}
+jump
+{1,6,1},{11,7,1}
+wall
+{1,8,1}
+wallrun
+{1,8,1},{6,9,1},{11,8,1},{16,10,1},{21,"loop"}
+duck
+{1,11,1}
+die
+{1,12,1}
+attack
+{1,5,1},{6,6,1},{11,7,1},{16,"end"}
+values
+{wJumpV = -1,scripts = {
+	attack = function(player) player.attack = 14 player.xv = player.xv * 0.65 end,
+	wall = function(player) if input.moveUp then player.yv = player.yv - 0.2 end end,
+	wallrun = function(player) if input.moveUp then player.yv = player.yv - 0.045 end end,
+},helpInfoTable = {{255,255,255},"He can run up walls.\nWoof.\n",{127,146,255},"\n\nReference:\n\tPewDiePie's dog,\n\tEdgar"}}

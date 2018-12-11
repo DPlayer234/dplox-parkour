@@ -1,0 +1,1 @@
+love-0.10.2-32 ./ debug=84d7b0 console editor=endless_31 tileset=endless editor_w=25 editor_h=25

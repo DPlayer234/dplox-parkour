@@ -1,0 +1,37 @@
+name
+Sam
+shortname
+Sam
+gender
+male
+texture
+assets/player/sam.png
+tilewidth
+15
+tileheight
+19
+idle
+{1,1,1},{10,2,1},{20,4,1},{30,3,1},{40,4,1},{50,2,1},{60,"loop"}
+walk
+{1,6,1},{5,5,1},{9,7,1},{13,5,1},{17,"loop"}
+jump
+{2,8,1}
+djump
+{1,9,1},{6,10,1},{9,11,1},{12,12,1},{15,11,1},{18,10,1},{21,9,1},{24,"end"}
+wall
+{1,13,1}
+wallrun
+{1,9,1},{6,10,1},{9,11,1},{12,12,1},{15,11,1},{18,10,1},{21,"loop"}
+duck
+{1,18,1}
+slide
+{1,14,1},{6,15,1},{9,16,1},{12,17,1},{15,16,1},{18,15,1},{21,"loop"}
+die
+{1,20,1}
+gdie
+{1,19,1}
+color
+255,0,0
+values
+{dJumpV = -2.5,scripts = {walk = function(player) if player.pdata.m then player.xv = player.xv + player.dir/7 end end,duck = function(player) if input.action then player.xv = player.dir*2.0 player.attack = 0 player.attackAnim = false end end,slide = function(player) if input.action then player.attack = 0 player.attackAnim = false if math.abs(player.xv) < 1.33 then player.xv = player.dir*1.65 elseif math.abs(player.xv) < 3.33 then player.xv = player.xv*1.35 elseif player.xv > 0 then player.xv = 4 else player.xv = -4 end end end,wallrun = function(player) if input.action then player.attack = 0 player.attackAnim = false player.yv = player.yv - 0.75 end end},
+helpInfo = "*ZOOOM!*\nSpin Dash!!"}

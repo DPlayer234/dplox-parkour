@@ -1,0 +1,56 @@
+name
+Glass t.H.
+shortname
+Glass
+gender
+female
+texture
+assets/player/glassth.png
+tilewidth
+15
+tileheight
+19
+idle
+{1,1,1}
+walk
+{1,2,1},{6,1,1},{11,3,1},{16,1,1},{21,2,1},{24,4,1},{29,5,1},{34,24}
+jump
+{2,6,1},{4,7,1},{6,8,1},{7,"loop"}
+djump
+{1,6,1},{3,7,1},{5,8,1},{7,6,1},{9,7,1},{11,8,1},{13,"end"}
+wall
+{1,9,1}
+wallrun
+{1,10,1},{6,11,1},{11,"loop"}
+duck
+{1,12,1}
+slide
+{1,13,1},{3,14,1},{5,15,1},{7,"loop"}
+die
+{2,16,1},{6,17,1},{10,18,1},{14,19,1},{18,20,1}
+color
+40,40,40
+values
+{dJumpV = 0,scripts = {
+	walk = function(player) if player.data.m and player.anim.frame >= 24 then player.xv = player.xv + player.dir/5 end end,
+	djump = function(player)
+		if player.anim.frame == 0 then
+			if input.moveUp then
+				player.dJumpV = -2
+			else
+				player.dJumpV = 0
+			end
+		end
+		if player.dJumpV == 0 then
+			if player.anim.frame == 12 then
+				player.xv = player.dir * 2
+			else
+				player.yv = 0
+				player.xv = player.dir * 3.5
+			end
+		else
+			player.yv = -2.5
+			player.data.updateAnim = true
+		end
+	end}
+,helpInfoTable = {{255,255,255},"Run faster.\nDouble-jump is replaced\nby a dash unless you\nhold %(ctrl and goodKey(cnf.moveUp)..'/\"Up\"' or goodKey(cnf.moveUp))%.\n",{127,146,255},"Credits:\n\tRe-Sublimity-Kun\n\tDeviantArt.com"}}

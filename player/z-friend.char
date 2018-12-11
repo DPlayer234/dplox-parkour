@@ -1,0 +1,32 @@
+name
+"Good" Friend
+shortname
+"Friend"
+gender
+neutral
+texture
+assets/player/bb.png
+costumes
+costume/friend.cost
+tilewidth
+13
+tileheight
+19
+idle
+{1,1,1}
+walk
+{1,2,1},{6,1,1},{11,3,1},{16,1,1},{21,"loop"}
+jump
+{2,4,1}
+djump
+{1,5,1},{4,6,1},{7,7,1},{10,8,1},{13,"end"}
+wall
+{1,9,1}
+wallrun
+{1,11,1},{6,10,1},{11,12,1},{16,10,1},{21,"loop"}
+duck
+{1,13,1},{3,14,1},{5,15,1}
+die
+{1,16,1},{3,17,1},{5,18,1},{7,19,1},{9,20,1}
+values
+{wJumpV = -2.5,jumpV = -3.25,dJumpV = -3.25,helpInfo = "Normal and mid-air jump\nhave the same height."}

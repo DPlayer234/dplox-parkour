@@ -1,0 +1,84 @@
+name
+Purple Sister
+shortname
+Nepgear
+gender
+female
+texture
+assets/player/purplesis.png
+costumes
+costume/purplesis.cost
+jumpsound
+assets/sound/jump2.ogg
+attacksound
+assets/sound/saber.ogg
+attacksoundvolume
+0.7
+tilewidth
+15
+tileheight
+19
+idle
+{1,1,1}
+walk
+{1,2,1},{6,3,1},{21,4,1},{36,6}
+jump
+{2,5,1},{12,6,1}
+djump
+{1,5,1},{2,"end"}
+wall
+{1,7,1}
+wallrun
+{1,7,1}
+duck
+{1,8,1}
+die
+{1,9,1},{7,10,1},{13,11,1},{19,12,1},{25,13,1},{30,14,1}
+color
+255,200,255
+values
+{jumpV = -2.75,wJumpV = -2.5,scripts = {
+	always = function(player)
+		local paj = player.pAirJumps
+		local jumping = ((input.moveUp) and not input.moveDown)
+		if jumping then
+			if paj < -0.5 and player.yv > player.jumpV then
+				if player.data.g then
+					sound.jump:play(player.x,player.y)
+				end
+				player.yv = player.yv - 0.275
+				paj = paj + 2
+				partSystem:spawnParticles("dust",math.random(0,1),player.x-1-player.dir*6,player.y,0,5)
+			elseif not player.data.w and player.yv > -1 then
+				player.yv = player.yv - 0.11
+				partSystem:spawnParticles("dust",math.random(-2,1),player.x-1-player.dir*6,player.y,0,5)
+			end
+			if player.data.m then
+				if input.moveLeft then
+					player.dir = -1
+				elseif input.moveRight then
+					player.dir = 1
+				end
+			end
+		end
+		if not jumping and paj > -50 then
+			paj = paj - 1
+		end
+		if paj >= 0 then
+			player.pAirJumps = 0
+		else
+			player.pAirJumps = paj
+		end
+	end,
+	wallrun = function(player)
+		player.yv = (player.yv + player.gravity.acceleration) * 0.97 * player.gravity.multiplier
+	end,
+	draw = function(player,tx,ty)
+		love.graphics.setColor(0,0,0,140)
+		local l = player.pAirJumps*-.6
+		love.graphics.rectangle("fill",player.x-15+tx+l,player.y+12+ty,30-l,5)
+		love.graphics.setColor(player.color[1],player.color[2],player.color[3],140)
+		love.graphics.rectangle("fill",player.x-15+tx,player.y+12+ty,l,5)
+		love.graphics.setColor(255,255,255)
+	end
+},helpInfoTable = {{255,255,255},"She can fly using %(ctrl and goodKey(cnf.moveUp)..'/\"Up\"' or goodKey(cnf.moveUp))%.\nBut she cannot\ndouble-jump in exchange.",{127,146,255},"\n\nCredits:\n\tHyperdimension Neptunia\n\tIdea Factory/Compile Heart"}}

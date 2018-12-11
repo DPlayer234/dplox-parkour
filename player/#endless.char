@@ -1,0 +1,30 @@
+name
+Endless Mode Cube
+shortname
+Cube
+gender
+none
+texture
+assets/player/endless.png
+tilewidth
+8
+tileheight
+17
+idle
+{1,1,1}
+walk
+{1,1,1}
+jump
+{1,1,1}
+wall
+{1,1,1}
+wallrun
+{1,1,1}
+duck
+{1,2,1}
+die
+{1,1,1}
+color
+0,174,14
+values
+{helpInfo = "Welcome to endless mode!\nDie once and it's game-over!\nCompete on the online leaderboards!"}

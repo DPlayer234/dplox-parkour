@@ -1,0 +1,52 @@
+name
+Lily the Mechanic
+shortname
+Lily
+gender
+female
+texture
+assets/player/lily.png
+costumes
+costume/lily.cost
+jumpsound
+assets/sound/jump2.ogg
+tilewidth
+13
+tileheight
+21
+idle
+{1,1,1},{120,2,1},{122,3,1},{124,2,1},{126,"loop"}
+walk
+{1,5,1},{6,4,1},{11,6,1},{16,4,1},{21,"loop"}
+jump
+{2,7,1},{12,8,1}
+djump
+{1,9,1}
+wall
+{1,10,1}
+wallrun
+{1,10,1}
+duck
+{1,11,1}
+die
+{1,12,1}
+attack
+{1,13,1},{4,14,1},{7,15,1},{9,"end"}
+color
+190,190,190
+values
+{
+	helpInfo = "She's a kitsune!\nJumping is fun,\nbut climbing walls isn't!",
+	dJumpV = -3.25,
+	wJumpV = -2.4,
+	scripts={
+	always= function()
+		if player.attack == 0 then
+			player.attack = -4
+		end
+	end,
+	wallrun = function(player)
+		player.yv = (player.yv + player.gravity.acceleration) * 0.97 * player.gravity.multiplier
+	end
+	}
+}

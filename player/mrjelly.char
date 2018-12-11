@@ -1,0 +1,36 @@
+name
+Mr. Jelly
+gender
+male
+texture
+assets/player/jelly.png
+costumes
+costume/mrjelly.cost
+jumpsound
+assets/sound/jump2.ogg
+tilewidth
+19
+tileheight
+29
+idle
+{1,3,1},{4,1,1}
+walk
+{1,3,1},{5,4,1},{9,3,1},{13,1,1},{17,"loop"}
+jump
+{2,3,1}
+djump
+{1,4,1},{5,3,1},{9,1,1},{13,"end"}
+wall
+{1,1,1}
+wallrun
+{1,1,1}
+duck
+{1,3,1},{4,4,1}
+die
+{1,3,1}
+gdie
+{1,3,1},{4,4,1}
+color
+142,0,142
+values
+{scripts = {wall = function(player) player.yv = -player.gravity.acceleration end,wallrun = function() player.yv = -player.gravity.acceleration end,walk = function(player) player.xv = player.xv * 0.93 end,idle = function(player) player.xv = player.xv * 0.93 end},helpInfo = "A cube of slime.\nSticks to walls and\n'walks' slower."}
